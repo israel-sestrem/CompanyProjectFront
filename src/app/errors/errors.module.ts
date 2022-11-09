@@ -1,5 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
+import { RouterModule } from "@angular/router";
 import { NotFoundComponent } from "./not-found/not-found.component";
 
 @NgModule({
@@ -7,7 +8,8 @@ import { NotFoundComponent } from "./not-found/not-found.component";
         NotFoundComponent
     ],
     imports:[
-        CommonModule
+        CommonModule,
+        RouterModule
     ]
 })
 export class ErrorsModule {}

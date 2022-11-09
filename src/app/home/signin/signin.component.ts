@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { HomeService } from '../home.service';
 
 @Component({
@@ -10,7 +12,12 @@ export class SigninComponent implements OnInit {
 
   loginForm!:FormGroup;
 
-  constructor(private fb: FormBuilder, private service: HomeService) { }
+  constructor(
+    private fb: FormBuilder, 
+    private service: HomeService,
+    private route: Router,
+    private toast: ToastrService
+    ) { }
 
   ngOnInit(): void {
 
@@ -24,15 +31,17 @@ export class SigninComponent implements OnInit {
   public login(form: FormGroup){
     let email = form.value.email;
     let password = form.value.password;
-    console.log(email);
-    console.log(password);
     
-    
-     this.service.validateUser({email, password})
+    this.service.validateUser({email, password})
      .subscribe(res=>{
-      console.log(res);
-      
-     })
+      if(res){
+        this.route.navigate(['home'])
+      } else {
+        this.toast.error(
+          "Credenciais inválidas!"
+        )
+      }
+    })
   }
 
 }

@@ -28,7 +28,7 @@
         </div>
 
         <div class="text-center">
-            <button [disabled]="signUpForm.invalid" type="submit" class="btn btn-primary btn-block mb-3 text-center">Cadastrar</button>
+            <button [disabled]="signUpForm.invalid" (click)="signup(signUpForm)" type="submit" class="btn btn-primary btn-block mb-3 text-center">Cadastrar</button>
         </div>
 
     </form>
