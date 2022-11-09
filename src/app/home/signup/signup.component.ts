@@ -39,6 +39,7 @@ export class SignupComponent implements OnInit {
     this.service.signup({name: userName, email, password})
     .subscribe(res => {
       if(res){
+        this.service.setUserLogged(res);
         this.route.navigate(['home'])
       } else {
         this.toast.error(

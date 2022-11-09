@@ -34,7 +34,8 @@ export class SigninComponent implements OnInit {
     
     this.service.validateUser({email, password})
      .subscribe(res=>{
-      if(res){
+      if(res.isValid){
+        this.service.setUserLogged(res.id)
         this.route.navigate(['home'])
       } else {
         this.toast.error(
