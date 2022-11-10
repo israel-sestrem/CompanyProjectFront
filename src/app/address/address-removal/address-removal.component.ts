@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AddressService } from '../address.service';
 
 @Component({
   selector: 'app-address-removal',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddressRemovalComponent implements OnInit {
 
-  constructor() { }
+  links:Object[] = []
+
+  constructor(private service: AddressService) { }
 
   ngOnInit(): void {
+
+    this.links = this.service.getLinks
+
   }
 
 }

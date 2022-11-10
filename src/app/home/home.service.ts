@@ -33,6 +33,23 @@ export class HomeService {
         return userId ? userId : null;
     }
 
+    get getLinks(){
+        return [
+            {
+                link:"/company",
+                name:"Empresa"
+            },
+            {
+                link:"/address",
+                name:"Endereço"
+            },
+            {
+                link:"/contact",
+                name:"Contato"
+            }
+        ]
+    }
+
 }
 
 export interface UserLogin {
@@ -49,4 +66,6 @@ export interface UserSignup {
     name: string
     email: string
     password: string
+    clientName: string
+    clientEmail: string
 }

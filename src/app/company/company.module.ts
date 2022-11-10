@@ -2,6 +2,7 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
+import { FixedModule } from "../fixed/fixed.module";
 import { CompanyAtualizationComponent } from "./company-atualization/company-atualization.component";
 import { CompanyListComponent } from "./company-list/company-list.component";
 import { CompanyRegistrationComponent } from "./company-registration/company-registration.component";
@@ -17,7 +18,8 @@ import { CompanyRemovalComponent } from "./company-removal/company-removal.compo
     imports:[
         CommonModule,
         ReactiveFormsModule,
-        RouterModule
+        RouterModule,
+        FixedModule
     ]
 })
 export class CompanyModule {}

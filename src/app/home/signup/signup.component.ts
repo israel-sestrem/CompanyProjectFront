@@ -25,7 +25,9 @@ export class SignupComponent implements OnInit {
     this.signUpForm = this.fb.group({
       userName : ['',Validators.required],
       email : ['',[Validators.email, Validators.required]],
-      password : ['',Validators.required]
+      password : ['',Validators.required],
+      clientName: ['',Validators.required],
+      clientEmail: ['',[Validators.email, Validators.required]]
     })
 
   }
@@ -35,8 +37,10 @@ export class SignupComponent implements OnInit {
     let userName = form.value.userName
     let email = form.value.email
     let password = form.value.password
+    let clientName = form.value.clientName
+    let clientEmail = form.value.clientEmail
 
-    this.service.signup({name: userName, email, password})
+    this.service.signup({name: userName, email, password, clientName, clientEmail})
     .subscribe(res => {
       if(res){
         this.service.setUserLogged(res);

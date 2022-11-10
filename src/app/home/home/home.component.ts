@@ -8,9 +8,14 @@ import { HomeService } from '../home.service';
 })
 export class HomeComponent implements OnInit {
 
+  links:Object[] = []
+
   constructor(private service: HomeService) { }
 
   ngOnInit(): void {
+
+    this.links = this.service.getLinks
+
   }
 
   deslogar(){

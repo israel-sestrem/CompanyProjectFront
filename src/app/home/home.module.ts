@@ -5,6 +5,7 @@ import { RouterModule } from "@angular/router";
 import { SigninComponent } from "./signin/signin.component";
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
+import { FixedModule } from "../fixed/fixed.module";
 
 @NgModule({
     declarations:[
@@ -15,7 +16,8 @@ import { HomeComponent } from './home/home.component';
     imports:[
         CommonModule,
         ReactiveFormsModule,
-        RouterModule
+        RouterModule,
+        FixedModule
     ]
 })
 export class HomeModule {}

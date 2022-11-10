@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CompanyService } from '../company.service';
 
 @Component({
   selector: 'app-company-atualization',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompanyAtualizationComponent implements OnInit {
 
-  constructor() { }
+  links:Object[] = []
+
+  constructor(private service: CompanyService) { }
 
   ngOnInit(): void {
+
+    this.links = this.service.getLinks
+
   }
 
 }
