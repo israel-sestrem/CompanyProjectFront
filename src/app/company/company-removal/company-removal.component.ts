@@ -7,15 +7,12 @@ import { CompanyService } from '../company.service';
   styleUrls: ['./company-removal.component.css']
 })
 export class CompanyRemovalComponent implements OnInit {
-
-  links:Object[] = []
+  
+  id = localStorage.getItem('client')
 
   constructor(private service: CompanyService) { }
 
   ngOnInit(): void {
-
-    this.links = this.service.getLinks
-
   }
 
 }

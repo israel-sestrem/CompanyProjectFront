@@ -8,13 +8,11 @@ import { AddressService } from '../address.service';
 })
 export class AddressAtualizationComponent implements OnInit {
 
-  links:Object[] = []
+  id = localStorage.getItem('address')
 
   constructor(private service: AddressService) { }
 
   ngOnInit(): void {
-
-    this.links = this.service.getLinks
 
   }
 

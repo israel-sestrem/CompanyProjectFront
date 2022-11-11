@@ -8,13 +8,11 @@ import { ContactService } from '../contact.service';
 })
 export class ContactRemovalComponent implements OnInit {
 
-  links:Object[] = []
+  id = localStorage.getItem('contact')
 
   constructor(private service: ContactService) { }
 
   ngOnInit(): void {
-
-    this.links = this.service.getLinks
 
   }
 

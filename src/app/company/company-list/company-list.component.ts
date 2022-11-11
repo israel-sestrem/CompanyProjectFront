@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from 'src/app/home/home.service';
+import { RecClient } from 'src/app/interfaces/company.model';
 import { CompanyService } from '../company.service';
 
 @Component({
@@ -8,14 +10,29 @@ import { CompanyService } from '../company.service';
 })
 export class CompanyListComponent implements OnInit {
 
-  links:Object[] = []
+  companies:RecClient[] = []
 
-  constructor(private service: CompanyService) { }
+  constructor(
+    private service: CompanyService,
+    private homeService: HomeService
+    ) { }
 
   ngOnInit(): void {
 
-    this.links = this.service.getLinks
+    this.getCompanyById()
 
+  }
+
+  getCompanyById(){
+    this.homeService.findById(this.homeService.getUserId)
+      .subscribe(user => {
+        this.service.getCompanyById(user.clientId)
+          .subscribe(company => this.companies.push(company))
+      })
+  }
+
+  setCompany(id:number){
+    localStorage.setItem('client', String(id))
   }
 
 }

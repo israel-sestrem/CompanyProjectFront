@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HomeService } from 'src/app/home/home.service';
 
 @Component({
@@ -7,8 +7,6 @@ import { HomeService } from 'src/app/home/home.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  @Input() links:any[] = []
 
   constructor(private homeService: HomeService) { }
 

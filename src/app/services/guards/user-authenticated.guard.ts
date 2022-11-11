@@ -11,7 +11,7 @@ export class UserAuthenticatedGuard implements CanActivate {
   
   canActivate(){
     if(this.service.getUserLogged){
-      return true;   
+      return true;
     }
     this.route.navigate([''])
     return false;

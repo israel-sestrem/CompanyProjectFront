@@ -8,13 +8,9 @@ import { ContactService } from '../contact.service';
 })
 export class ContactRegistrationComponent implements OnInit {
 
-  links:Object[] = []
-
   constructor(private service: ContactService) { }
 
   ngOnInit(): void {
-
-    this.links = this.service.getLinks
 
   }
 

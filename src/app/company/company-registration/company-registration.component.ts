@@ -8,14 +8,9 @@ import { CompanyService } from '../company.service';
 })
 export class CompanyRegistrationComponent implements OnInit {
 
-  links:Object[] = []
-
   constructor(private service: CompanyService) { }
 
   ngOnInit(): void {
-
-    this.links = this.service.getLinks
-
   }
 
 }

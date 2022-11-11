@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
+import { RecUser, RecUserLogin, UserLogin, UserSignup } from "../interfaces/home.model";
 
 @Injectable({providedIn:'root'})
 export class HomeService {
@@ -19,6 +20,14 @@ export class HomeService {
         return this.http.post<string>(`${this.baseUrl}/users`, userSignup)
     }
 
+    findById(userId:string): Observable<RecUser>{
+        return this.http.get<RecUser>(`${this.baseUrl}/users/${userId}`)
+    }
+
+    existsUser(userId:string): Observable<boolean>{
+        return this.http.get<boolean>(`${this.baseUrl}/users/exists/${userId}`)
+    }
+
     deslogar(){
         localStorage.clear();
         this.route.navigate(['/'])
@@ -33,39 +42,8 @@ export class HomeService {
         return userId ? userId : null;
     }
 
-    get getLinks(){
-        return [
-            {
-                link:"/company",
-                name:"Empresa"
-            },
-            {
-                link:"/address",
-                name:"Endereço"
-            },
-            {
-                link:"/contact",
-                name:"Contato"
-            }
-        ]
+    get getUserId(){
+        return JSON.parse(localStorage.getItem('user')!)
     }
 
-}
-
-export interface UserLogin {
-    email:string,
-    password:string
-}
-
-export interface RecUserLogin {
-    isValid:boolean,
-    id:string
-}
-
-export interface UserSignup {
-    name: string
-    email: string
-    password: string
-    clientName: string
-    clientEmail: string
 }

@@ -1,3 +1,46 @@
-<app-header [links]="links"></app-header>
-<p>contact-list works!</p>
+<app-header></app-header>
+
+<div class="body-page">
+    <div class="text-center">
+        <button class="btn btn-primary mt-2" routerLink="/contact/registration">Cadastrar</button>
+    </div>
+
+    <table class="table mt-5">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Id do cliente</th>
+                <th scope="col">Id do usuário</th>
+                <th scope="col" colspan="2" class="text-center">Opções</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let contact of contacts">
+                <td>{{ contact.id }}</td>
+                <td>{{ contact.phone }}</td>
+                <td>{{ contact.type }}</td>
+                <td>{{ contact.client.id }}</td>
+                <td>{{ contact.user.id }}</td>
+                <td>
+                    <div class="text-center">
+                        <button class="btn btn-warning" (click)="setContact(contact.id)" routerLink="/contact/atualization">Editar</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="text-center">
+                        <button class="btn btn-danger" (click)="setContact(contact.id)" routerLink="/contact/removal">Deletar</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="7" class="text-center">Quantidade de contatos: {{ contacts.length }}</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
 <app-footer></app-footer>

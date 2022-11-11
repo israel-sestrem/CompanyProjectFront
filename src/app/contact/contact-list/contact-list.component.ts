@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from 'src/app/home/home.service';
+import { RecContact } from 'src/app/interfaces/contact.model';
 import { ContactService } from '../contact.service';
 
 @Component({
@@ -8,14 +10,29 @@ import { ContactService } from '../contact.service';
 })
 export class ContactListComponent implements OnInit {
 
-  links:Object[] = []
+  contacts: RecContact[] = []
 
-  constructor(private service: ContactService) { }
+  constructor(
+    private service: ContactService,
+    private homeService: HomeService
+    ) { }
 
   ngOnInit(): void {
 
-    this.links = this.service.getLinks
+    this.getContactByClientId();
 
+  }
+
+  getContactByClientId(){
+    this.homeService.findById(this.homeService.getUserId)
+      .subscribe(user => {
+        this.service.getContactByClientId(user.clientId)
+          .subscribe(contacts => contacts.forEach(contact => this.contacts.push(contact)))
+      })
+  }
+
+  setContact(id:number){
+    localStorage.setItem('contact',String(id))
   }
 
 }

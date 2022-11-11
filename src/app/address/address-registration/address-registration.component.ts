@@ -8,13 +8,9 @@ import { AddressService } from '../address.service';
 })
 export class AddressRegistrationComponent implements OnInit {
 
-  links:Object[] = []
-
   constructor(private service: AddressService) { }
 
   ngOnInit(): void {
-
-    this.links = this.service.getLinks
 
   }
 

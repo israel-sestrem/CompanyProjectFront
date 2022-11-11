@@ -1,3 +1,58 @@
-<app-header [links]="links"></app-header>
-<p>address-list works!</p>
+<app-header></app-header>
+
+<div class="body-page">
+    <div class="text-center">
+        <button class="btn btn-primary mt-2" routerLink="/address/registration">Cadastrar</button>
+    </div>
+
+    <table class="table mt-5">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Filial</th>
+                <th scope="col">Endereço</th>
+                <th scope="col">Cidade</th>
+                <th scope="col">Cnpj</th>
+                <th scope="col">Complemento</th>
+                <th scope="col">Bairro</th>
+                <th scope="col">Número</th>
+                <th scope="col">Estado</th>
+                <th scope="col">CEP</th>
+                <th scope="col">Id do cliente</th>
+                <th scope="col" colspan="2" class="text-center">Opções</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let address of addresses">
+                <td>{{ address.id }}</td>
+                <td>{{ address.branch }}</td>
+                <td>{{ address.address }}</td>
+                <td>{{ address.city }}</td>
+                <td>{{ address.cnpj }}</td>
+                <td>{{ address.complement }}</td>
+                <td>{{ address.neighborhood }}</td>
+                <td>{{ address.number }}</td>
+                <td>{{ address.state }}</td>
+                <td>{{ address.zipCode }}</td>
+                <td>{{ address.client.id }}</td>
+                <td>
+                    <div class="text-center">
+                        <button class="btn btn-warning" (click)="setAddress(address.id)" routerLink="/address/atualization">Editar</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="text-center">
+                        <button class="btn btn-danger" (click)="setAddress(address.id)" routerLink="/address/removal">Deletar</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="13" class="text-center">Quantidade de endereços: {{ addresses.length }}</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
 <app-footer></app-footer>

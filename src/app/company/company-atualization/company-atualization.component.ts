@@ -8,13 +8,11 @@ import { CompanyService } from '../company.service';
 })
 export class CompanyAtualizationComponent implements OnInit {
 
-  links:Object[] = []
+  id = localStorage.getItem('client')
 
   constructor(private service: CompanyService) { }
 
   ngOnInit(): void {
-
-    this.links = this.service.getLinks
 
   }
 

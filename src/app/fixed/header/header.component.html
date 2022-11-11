@@ -6,8 +6,14 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item" *ngFor="let link of links">
-        <a class="nav-link" [routerLink]="link.link">{{ link.name }}</a>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/company">Empresa</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/address">Endereço</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contact">Contato</a>
       </li>
     </ul>
   </div>
