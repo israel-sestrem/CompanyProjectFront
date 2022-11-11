@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
-import { RecAddress } from "../interfaces/address.model";
+import { RecAddress, SaveAddress } from "../interfaces/address.model";
 
 @Injectable({providedIn:'root'})
 export class AddressService{
@@ -16,4 +16,8 @@ export class AddressService{
     return this.http.get<RecAddress[]>(`${this.baseUrl}/addresses/client/${clientId}`)
   };
   
+  register(address:SaveAddress): Observable<boolean>{
+    return this.http.post<boolean>(`${this.baseUrl}/addresses`, address)
+  }
+
 }

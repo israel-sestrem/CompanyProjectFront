@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
-import { RecClient } from "../interfaces/company.model";
+import { RecClient, SaveClient } from "../interfaces/company.model";
 
 @Injectable({providedIn:'root'})
 export class CompanyService {
@@ -16,8 +16,8 @@ export class CompanyService {
         return this.http.get<RecClient>(`${this.baseUrl}/clients/${id}`)
     }
 
-    // getCompanyAddresses(clientId:string):Observable<RecAddress[]>{
-    //     return this.http.get<RecAddress[]>(`${this.baseUrl}/addresses/client/${clientId}`)
-    // }
+    register(client:SaveClient): Observable<boolean>{
+        return this.http.post<boolean>(`${this.baseUrl}/clients`, client)
+    }
 
 }
