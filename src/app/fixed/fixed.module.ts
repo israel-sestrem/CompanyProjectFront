@@ -1,6 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { FooterComponent } from "./footer/footer.component";
 import { HeaderComponent } from "./header/header.component";
 
@@ -11,7 +12,8 @@ import { HeaderComponent } from "./header/header.component";
     ],
     imports:[
         CommonModule,
-        RouterModule
+        RouterModule,
+        NgbModule
     ],
     exports:[
         HeaderComponent,

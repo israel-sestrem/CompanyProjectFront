@@ -30,7 +30,8 @@
         </div>
 
         <div class="text-center">
-            <button [disabled]="form.invalid" (click)="registerClient(form)" type="submit" class="btn btn-primary btn-block mb-3 text-center">Cadastrar</button>
+            <button class="btn btn-secondary btn-block m-1" routerLink="/company">Cancelar</button>
+            <button [disabled]="form.invalid" (click)="registerClient(form)" type="submit" class="btn btn-primary btn-block m-1">Cadastrar</button>
         </div>
 
     </form>

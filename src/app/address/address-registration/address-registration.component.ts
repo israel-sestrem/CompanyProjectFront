@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CompanyService } from 'src/app/company/company.service';
 import { HomeService } from 'src/app/home/home.service';
@@ -21,7 +22,8 @@ export class AddressRegistrationComponent implements OnInit {
     private homeService: HomeService,
     private companyService: CompanyService,
     private fb: FormBuilder,
-    private toast: ToastrService
+    private toast: ToastrService,
+    private route: Router
     ) { }
 
   ngOnInit(): void {
@@ -68,9 +70,10 @@ export class AddressRegistrationComponent implements OnInit {
     this.service.register({client, branch, address, city, cnpj, complement, neighborhood, number, state, zipCode})
       .subscribe(res => {
         if(res){
-          this.toast.success('Empresa cadastrada com sucesso!')
+          this.toast.success('Endereço cadastrado com sucesso!')
+          this.route.navigate(['address'])
         } else {
-          this.toast.error('Houve um erro ao tentar cadastrar empresa.')
+          this.toast.error('Houve um erro ao tentar cadastrar o endereço.')
         }
       })
   }

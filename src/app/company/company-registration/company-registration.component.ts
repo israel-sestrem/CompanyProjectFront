@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HomeService } from 'src/app/home/home.service';
 import { RecUser } from 'src/app/interfaces/home.model';
@@ -19,7 +20,8 @@ export class CompanyRegistrationComponent implements OnInit {
     private service: CompanyService,
     private homeService: HomeService,
     private fb: FormBuilder,
-    private toast: ToastrService
+    private toast: ToastrService,
+    private route: Router
     ) { }
 
   ngOnInit(): void {
@@ -49,6 +51,7 @@ export class CompanyRegistrationComponent implements OnInit {
       .subscribe(res => {
         if(res){
           this.toast.success('Empresa cadastrada com sucesso!')
+          this.route.navigate(['company'])
         } else {
           this.toast.error('Houve um erro ao tentar cadastrar empresa.')
         }
