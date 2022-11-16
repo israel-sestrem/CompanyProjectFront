@@ -17,7 +17,7 @@ export interface UserSignup {
 }
 
 export interface RecUser {
-    id:number
+    id:string
     clientId:string
     name:string
     password:string

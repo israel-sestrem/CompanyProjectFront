@@ -10,6 +10,18 @@
             <input class="form-control" id="client" [value]="client.name" disabled autofocus>
         </div>
 
+        <div class="form-group mb-3 content">
+            <label for="zipCode" class="fw-bold">CEP</label>
+            <input formControlName="zipCode" id="zipCode" class="form-control" placeholder="Código postal" autofocus>
+            <small *ngIf="form.get('zipCode')?.errors?.['required']" class="text-danger d-block mt-2">
+                Código postal é necessário!
+            </small>
+        </div>
+
+        <div class="text-center">
+            <button (click)="getAddressInfo(form.value.zipCode)" class="btn btn-primary btn-block mb-3">Buscar</button>
+        </div>
+
         <div class="row">
             <div class="col-6">
 
@@ -22,22 +34,6 @@
                 </div>
 
                 <div class="form-group mb-3">
-                    <label for="address" class="fw-bold">Endereço</label>
-                    <input formControlName="address" id="address" class="form-control" placeholder="Endereço" autofocus>
-                    <small *ngIf="form.get('address')?.errors?.['required']" class="text-danger d-block mt-2">
-                        Endereço é necessário!
-                    </small>
-                </div>
-
-                <div class="form-group mb-3">
-                    <label for="brancitych" class="fw-bold">Cidade</label>
-                    <input formControlName="city" id="city" class="form-control" placeholder="Cidade" autofocus>
-                    <small *ngIf="form.get('city')?.errors?.['required']" class="text-danger d-block mt-2">
-                        Cidade é necessária!
-                    </small>
-                </div>
-
-                <div class="form-group mb-3">
                     <label for="cnpj" class="fw-bold">Cnpj</label>
                     <input formControlName="cnpj" id="cnpj" class="form-control" placeholder="Cnpj" autofocus>
                     <small *ngIf="form.get('cnpj')?.errors?.['required']" class="text-danger d-block mt-2">
@@ -46,19 +42,35 @@
                 </div>
 
                 <div class="form-group mb-3">
-                    <label for="complement" class="fw-bold">Complemento</label>
-                    <input formControlName="complement" id="complement" class="form-control" placeholder="Complemento" autofocus>
-                    <small *ngIf="form.get('complement')?.errors?.['required']" class="text-danger d-block mt-2">
-                        Complemento é necessário!
+                    <label for="state" class="fw-bold">Estado</label>
+                    <input formControlName="state" id="state" class="form-control" placeholder="Estado" [value]="cepInfo.uf" autofocus>
+                    <small *ngIf="form.get('state')?.errors?.['required']" class="text-danger d-block mt-2">
+                        Estado é necessário!
+                    </small>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="brancitych" class="fw-bold">Cidade</label>
+                    <input formControlName="city" id="city" class="form-control" placeholder="Cidade" [value]="cepInfo.localidade" autofocus>
+                    <small *ngIf="form.get('city')?.errors?.['required']" class="text-danger d-block mt-2">
+                        Cidade é necessária!
                     </small>
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group mb-3">
                     <label for="neighborhood" class="fw-bold">Bairro</label>
-                    <input formControlName="neighborhood" id="neighborhood" class="form-control" placeholder="Bairro" autofocus>
+                    <input formControlName="neighborhood" id="neighborhood" class="form-control" placeholder="Bairro" [value]="cepInfo.bairro" autofocus>
                     <small *ngIf="form.get('neighborhood')?.errors?.['required']" class="text-danger d-block mt-2">
                         Bairro é necessário!
+                    </small>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="address" class="fw-bold">Endereço</label>
+                    <input formControlName="address" id="address" class="form-control" placeholder="Endereço" [value]="cepInfo.logradouro" autofocus>
+                    <small *ngIf="form.get('address')?.errors?.['required']" class="text-danger d-block mt-2">
+                        Endereço é necessário!
                     </small>
                 </div>
 
@@ -71,19 +83,8 @@
                 </div>
 
                 <div class="form-group mb-3">
-                    <label for="state" class="fw-bold">Estado</label>
-                    <input formControlName="state" id="state" class="form-control" placeholder="Estado" autofocus>
-                    <small *ngIf="form.get('state')?.errors?.['required']" class="text-danger d-block mt-2">
-                        Estado é necessário!
-                    </small>
-                </div>
-
-                <div class="form-group mb-3">
-                    <label for="zipCode" class="fw-bold">CEP</label>
-                    <input formControlName="zipCode" id="zipCode" class="form-control" placeholder="Código postal" autofocus>
-                    <small *ngIf="form.get('zipCode')?.errors?.['required']" class="text-danger d-block mt-2">
-                        Código postal é necessário!
-                    </small>
+                    <label for="complement" class="fw-bold">Complemento</label>
+                    <input formControlName="complement" id="complement" class="form-control" placeholder="Complemento" autofocus>
                 </div>
             </div>
         </div>

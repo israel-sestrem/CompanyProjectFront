@@ -1,7 +1,7 @@
 import { RecClient } from "./company.model";
 
 export interface RecAddress{
-    id:number
+    id:string
     client:RecClient
     branch:string
     cnpj:string
@@ -15,7 +15,7 @@ export interface RecAddress{
 }
 
 export interface SaveAddress{
-    client:{ id:number }
+    client:{ id:string }
     branch:string
     cnpj:string
     address:string
@@ -25,4 +25,16 @@ export interface SaveAddress{
     zipCode:string
     state:string
     city:string
+}
+
+export interface RecCep{
+    logradouro:string
+    bairro:string
+    localidade:string
+    uf:string
+}
+
+export interface State{
+    sigla:string
+    name:string
 }

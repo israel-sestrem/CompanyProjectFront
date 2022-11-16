@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
-import { RecAddress, SaveAddress } from "../interfaces/address.model";
+import { RecAddress, RecCep, SaveAddress } from "../interfaces/address.model";
 
 @Injectable({providedIn:'root'})
 export class AddressService{
@@ -18,6 +18,10 @@ export class AddressService{
   
   register(address:SaveAddress): Observable<boolean>{
     return this.http.post<boolean>(`${this.baseUrl}/addresses`, address)
+  }
+
+  getAddressInfo(cep:string): Observable<RecCep>{
+    return this.http.get<RecCep>(`https://viacep.com.br/ws/${cep}/json`)
   }
 
 }

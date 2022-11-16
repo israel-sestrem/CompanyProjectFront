@@ -31,8 +31,8 @@ export class ContactListComponent implements OnInit {
       })
   }
 
-  setContact(id:number){
-    localStorage.setItem('contact',String(id))
+  setContact(id:string){
+    localStorage.setItem('contact',id)
   }
 
 }

@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
-import { RecContact } from "../interfaces/contact.model";
+import { RecContact, SaveContact } from "../interfaces/contact.model";
 
 @Injectable({providedIn:'root'})
 export class ContactService {
@@ -14,6 +14,10 @@ export class ContactService {
 
     getContactByClientId(clientId:string): Observable<RecContact[]>{
         return this.http.get<RecContact[]>(`${this.baseUrl}/contacts/client/${clientId}`)
+    }
+
+    registerContact(contact:SaveContact): Observable<boolean>{
+        return this.http.post<boolean>(`${this.baseUrl}/contacts`, contact)
     }
 
 }

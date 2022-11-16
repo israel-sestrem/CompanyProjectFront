@@ -1,5 +1,5 @@
 export interface RecClient{
-    id:number
+    id:string
     name:string
     email:string
 }

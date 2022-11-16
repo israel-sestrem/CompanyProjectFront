@@ -31,8 +31,8 @@ export class AddressListComponent implements OnInit {
       })
   }
 
-  setAddress(id:number){
-    localStorage.setItem('address',String(id))
+  setAddress(id:string){
+    localStorage.setItem('address',id)
   }
 
 }

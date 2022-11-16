@@ -31,8 +31,8 @@ export class CompanyListComponent implements OnInit {
       })
   }
 
-  setCompany(id:number){
-    localStorage.setItem('client', String(id))
+  setCompany(id:string){
+    localStorage.setItem('client', id)
   }
 
 }
