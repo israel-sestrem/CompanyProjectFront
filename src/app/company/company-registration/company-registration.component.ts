@@ -51,7 +51,7 @@ export class CompanyRegistrationComponent implements OnInit {
       .subscribe(res => {
         if(res){
           this.toast.success('Empresa cadastrada com sucesso!')
-          this.route.navigate(['company'])
+          this.route.navigate(['/company'])
         } else {
           this.toast.error('Houve um erro ao tentar cadastrar empresa.')
         }

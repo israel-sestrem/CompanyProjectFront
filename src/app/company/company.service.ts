@@ -20,4 +20,12 @@ export class CompanyService {
         return this.http.post<boolean>(`${this.baseUrl}/clients`, client)
     }
 
+    edit(id:string, client:SaveClient): Observable<boolean>{
+        return this.http.put<boolean>(`${this.baseUrl}/clients/${id}`, client)
+    }
+
+    // delete(id:string): Observable<boolean>{
+    //     return this.http.delete<boolean>(`${this.baseUrl}/clients/${id}`)
+    // }
+
 }

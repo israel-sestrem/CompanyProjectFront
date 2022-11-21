@@ -1,9 +1,9 @@
 <app-header></app-header>
 
 <div class="body-page">
-    <div class="text-center">
+    <!-- <div class="text-center">
         <button class="btn btn-primary mt-2" routerLink="/company/registration">Cadastrar</button>
-    </div>
+    </div> -->
 
     <table class="table mt-5">
         <thead>
@@ -11,7 +11,7 @@
                 <th scope="col">Id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
-                <th scope="col" colspan="2" class="text-center">Opções</th>
+                <th scope="col">Opção</th>
             </tr>
         </thead>
         <tbody>
@@ -20,20 +20,20 @@
                 <td>{{ company.name }}</td>
                 <td>{{ company.email }}</td>
                 <td>
-                    <div class="text-center">
+                    <!-- <div class="text-center"> -->
                         <button class="btn btn-warning" (click)="setCompany(company.id)" routerLink="/company/atualization">Editar</button>
-                    </div>
+                    <!-- </div> -->
                 </td>
-                <td>
+                <!-- <td>
                     <div class="text-center">
                         <button class="btn btn-danger" (click)="setCompany(company.id)" routerLink="/company/removal">Deletar</button>
                     </div>
-                </td>
+                </td> -->
             </tr>
         </tbody>
         <tfoot>
             <tr>
-                <th colspan="5" class="text-center">Quantidade de empresas: {{ companies.length }}</th>
+                <th colspan="4" class="text-center">Quantidade de empresas: {{ companies.length }}</th>
             </tr>
         </tfoot>
     </table>

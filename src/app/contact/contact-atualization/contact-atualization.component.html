@@ -1,3 +1,46 @@
 <app-header></app-header>
-<p>contact-atualization works! id: {{ id }}</p>
+
+<div class="body-page center">
+    <h4 class="text-center mt-3">Edição</h4>
+
+    <form [formGroup]="form" class="form mt-4">
+
+        <div class="form-group mb-3">
+            <label for="client" class="fw-bold">Cliente</label>
+            <input class="form-control" id="client" [value]="client.name" disabled autofocus>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="user" class="fw-bold">Usuário</label>
+            <input class="form-control" id="user" [value]="user.email" disabled autofocus>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="phone" class="fw-bold">Telefone</label>
+            <input formControlName="phone" id="phone" class="form-control" placeholder="Telefone" autofocus>
+            <small *ngIf="form.get('phone')?.errors?.['required']" class="text-danger d-block mt-2">
+                Telefone é necessário!
+            </small>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="type" class="fw-bold">Tipo</label>
+            <select formControlName="type" id="type" class="form-select">
+                <option value="COMERCIAL">Comercial</option>
+                <option value="RESIDENTIAL">Residencial</option>
+                <option value="FINANCIAL">Financeiro</option>
+            </select>
+            <small *ngIf="form.get('type')?.errors?.['required']" class="text-danger d-block mt-2">
+                Tipo é necessário!
+            </small>
+        </div>
+
+        <div class="text-center">
+            <button class="btn btn-secondary btn-block m-1" routerLink="/contact">Cancelar</button>
+            <button [disabled]="form.invalid" (click)="editContact(form)" type="submit" class="btn btn-primary btn-block m-1">Editar</button>
+        </div>
+
+    </form>
+</div>
+
 <app-footer></app-footer>

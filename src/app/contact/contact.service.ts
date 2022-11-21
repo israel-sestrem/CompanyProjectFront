@@ -20,4 +20,16 @@ export class ContactService {
         return this.http.post<boolean>(`${this.baseUrl}/contacts`, contact)
     }
 
+    edit(id:string, contact:SaveContact): Observable<boolean>{
+        return this.http.put<boolean>(`${this.baseUrl}/contacts/${id}`, contact)
+    }
+
+    delete(id:string): Observable<boolean>{
+        return this.http.delete<boolean>(`${this.baseUrl}/contacts/${id}`)
+    }
+
+    getContactById(id:string): Observable<RecContact>{
+        return this.http.get<RecContact>(`${this.baseUrl}/contacts/${id}`)
+    }
+
 }

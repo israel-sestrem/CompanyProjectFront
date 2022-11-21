@@ -4,7 +4,8 @@
     <form [formGroup]="loginForm" class="form mt-4">
 
         <div class="form-group mb-3">
-            <input formControlName="email" class="form-control" placeholder="email" autofocus>
+            <label for="email" class="fw-bold">Email</label>
+            <input formControlName="email" id="email" class="form-control" placeholder="Email" autofocus>
             <small *ngIf="loginForm.get('email')?.errors?.['required']" class="text-danger d-block mt-2">
                 Email é necessário!
             </small>
@@ -14,7 +15,8 @@
         </div>
 
         <div class="form-group mb-3">
-            <input formControlName="password" type="password" class="form-control" placeholder="Senha">
+            <label for="password" class="fw-bold">Senha</label>
+            <input formControlName="password" id="password" type="password" class="form-control" placeholder="Senha">
             <small *ngIf="loginForm.get('password')?.errors?.['required']" class="text-danger d-block mt-2">
                 Senha é necessário!
             </small>

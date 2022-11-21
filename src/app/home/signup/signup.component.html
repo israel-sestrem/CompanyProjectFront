@@ -4,14 +4,16 @@
     <form [formGroup]="signUpForm" class="form mt-4">
 
         <div class="form-group mb-3">
-            <input formControlName="userName" class="form-control" placeholder="Usuário" autofocus>
+            <label for="userName" class="fw-bold">Usuário</label>
+            <input formControlName="userName" id="userName" class="form-control" placeholder="Usuário" autofocus>
             <small *ngIf="signUpForm.get('userName')?.errors?.['required']" class="text-danger d-block mt-2">
                 Usuário é necessário!
             </small>
         </div>
 
         <div class="form-group mb-3">
-            <input formControlName="email" class="form-control" placeholder="Email do usuário" autofocus>
+            <label for="email" class="fw-bold">Email do usuário</label>
+            <input formControlName="email" id="email" class="form-control" placeholder="Email do usuário" autofocus>
             <small *ngIf="signUpForm.get('email')?.errors?.['required']" class="text-danger d-block mt-2">
                 Email é necessário!
             </small>
@@ -21,21 +23,24 @@
         </div>
 
         <div class="form-group mb-3">
-            <input formControlName="password" type="password" class="form-control" placeholder="Senha do usuário">
+            <label for="password" class="fw-bold">Senha do usuário</label>
+            <input formControlName="password" id="password" type="password" class="form-control" placeholder="Senha do usuário">
             <small *ngIf="signUpForm.get('password')?.errors?.['required']" class="text-danger d-block mt-2">
                 Senha é necessário!
             </small>
         </div>
 
         <div class="form-group mb-3">
-            <input formControlName="clientName" class="form-control" placeholder="Nome da empresa" autofocus>
+            <label for="clientName" class="fw-bold">Nome da empresa</label>
+            <input formControlName="clientName" id="clientName" class="form-control" placeholder="Nome da empresa" autofocus>
             <small *ngIf="signUpForm.get('clientName')?.errors?.['required']" class="text-danger d-block mt-2">
                 Nome da empresa é necessário!
             </small>
         </div>
 
         <div class="form-group mb-3">
-            <input formControlName="clientEmail" class="form-control" placeholder="Email da empresa" autofocus>
+            <label for="clientEmail" class="fw-bold">Email da empresa</label>
+            <input formControlName="clientEmail" id="clientEmail" class="form-control" placeholder="Email da empresa" autofocus>
             <small *ngIf="signUpForm.get('clientEmail')?.errors?.['required']" class="text-danger d-block mt-2">
                 Email da empresa é necessário!
             </small>
