@@ -16,7 +16,6 @@ import { AddressService } from '../address.service';
 export class AddressRegistrationComponent implements OnInit {
 
   client:RecClient = {} as RecClient
-  cepInfo:RecCep = {} as RecCep
   form!:FormGroup
 
   constructor(
@@ -84,7 +83,11 @@ export class AddressRegistrationComponent implements OnInit {
     this.service.getAddressInfo(cep)
       .subscribe(res => {
         res.uf = this.getStatesNamesByInitials(res.uf)
-        this.cepInfo = res;
+
+        this.form.controls['state'].setValue(res.uf)
+        this.form.controls['city'].setValue(res.localidade)
+        this.form.controls['neighborhood'].setValue(res.bairro)
+        this.form.controls['address'].setValue(res.logradouro)
       })
   }
 

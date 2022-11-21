@@ -10,14 +10,14 @@
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Filial</th>
-                <th scope="col">Endereço</th>
-                <th scope="col">Cidade</th>
                 <th scope="col">Cnpj</th>
-                <th scope="col">Complemento</th>
-                <th scope="col">Bairro</th>
-                <th scope="col">Número</th>
-                <th scope="col">Estado</th>
                 <th scope="col">CEP</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Cidade</th>
+                <th scope="col">Bairro</th>
+                <th scope="col">Endereço</th>
+                <th scope="col">Número</th>
+                <th scope="col">Complemento</th>
                 <th scope="col">Id do cliente</th>
                 <th scope="col" colspan="2" class="text-center">Opções</th>
             </tr>
@@ -26,14 +26,14 @@
             <tr *ngFor="let address of addresses">
                 <td>{{ address.id }}</td>
                 <td>{{ address.branch }}</td>
-                <td>{{ address.address }}</td>
-                <td>{{ address.city }}</td>
                 <td>{{ address.cnpj }}</td>
-                <td>{{ address.complement }}</td>
-                <td>{{ address.neighborhood }}</td>
-                <td>{{ address.number }}</td>
-                <td>{{ address.state }}</td>
                 <td>{{ address.zipCode }}</td>
+                <td>{{ address.state }}</td>
+                <td>{{ address.city }}</td>
+                <td>{{ address.neighborhood }}</td>
+                <td>{{ address.address }}</td>
+                <td>{{ address.number }}</td>
+                <td>{{ address.complement }}</td>
                 <td>{{ address.client.id }}</td>
                 <td>
                     <div class="text-center">

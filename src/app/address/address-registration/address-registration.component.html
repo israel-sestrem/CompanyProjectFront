@@ -43,7 +43,7 @@
 
                 <div class="form-group mb-3">
                     <label for="state" class="fw-bold">Estado</label>
-                    <input formControlName="state" id="state" class="form-control" placeholder="Estado" [value]="cepInfo.uf" autofocus>
+                    <input formControlName="state" id="state" class="form-control" placeholder="Estado" autofocus>
                     <small *ngIf="form.get('state')?.errors?.['required']" class="text-danger d-block mt-2">
                         Estado é necessário!
                     </small>
@@ -51,7 +51,7 @@
 
                 <div class="form-group mb-3">
                     <label for="brancitych" class="fw-bold">Cidade</label>
-                    <input formControlName="city" id="city" class="form-control" placeholder="Cidade" [value]="cepInfo.localidade" autofocus>
+                    <input formControlName="city" id="city" class="form-control" placeholder="Cidade" autofocus>
                     <small *ngIf="form.get('city')?.errors?.['required']" class="text-danger d-block mt-2">
                         Cidade é necessária!
                     </small>
@@ -60,7 +60,7 @@
             <div class="col-6">
                 <div class="form-group mb-3">
                     <label for="neighborhood" class="fw-bold">Bairro</label>
-                    <input formControlName="neighborhood" id="neighborhood" class="form-control" placeholder="Bairro" [value]="cepInfo.bairro" autofocus>
+                    <input formControlName="neighborhood" id="neighborhood" class="form-control" placeholder="Bairro" autofocus>
                     <small *ngIf="form.get('neighborhood')?.errors?.['required']" class="text-danger d-block mt-2">
                         Bairro é necessário!
                     </small>
@@ -68,7 +68,7 @@
 
                 <div class="form-group mb-3">
                     <label for="address" class="fw-bold">Endereço</label>
-                    <input formControlName="address" id="address" class="form-control" placeholder="Endereço" [value]="cepInfo.logradouro" autofocus>
+                    <input formControlName="address" id="address" class="form-control" placeholder="Endereço" autofocus>
                     <small *ngIf="form.get('address')?.errors?.['required']" class="text-danger d-block mt-2">
                         Endereço é necessário!
                     </small>
@@ -76,7 +76,7 @@
 
                 <div class="form-group mb-3">
                     <label for="number" class="fw-bold">Número</label>
-                    <input formControlName="number" id="number" class="form-control" placeholder="Número" autofocus>
+                    <input formControlName="number" id="number" class="form-control" placeholder="Número" type="number" autofocus>
                     <small *ngIf="form.get('number')?.errors?.['required']" class="text-danger d-block mt-2">
                         Número é necessário!
                     </small>
