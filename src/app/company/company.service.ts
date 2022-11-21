@@ -1,6 +1,5 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { RecClient, SaveClient } from "../interfaces/company.model";
@@ -10,7 +9,7 @@ export class CompanyService {
 
     baseUrl = environment.baseUrl;
 
-    constructor(private http: HttpClient, private route: Router){}
+    constructor(private http: HttpClient){}
 
     getCompanyById(id:string): Observable<RecClient>{
         return this.http.get<RecClient>(`${this.baseUrl}/clients/${id}`)

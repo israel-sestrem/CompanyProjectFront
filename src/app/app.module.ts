@@ -12,10 +12,11 @@ import { ContactModule } from './contact/contact.module';
 import { ErrorsModule } from './errors/errors.module';
 import { HomeModule } from './home/home.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +27,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AddressModule,
     CompanyModule,
     ContactModule,
+    UserModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     NgbModule

@@ -1,6 +1,5 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { RecAddress, RecCep, SaveAddress, State } from "../interfaces/address.model";
@@ -10,7 +9,7 @@ export class AddressService{
 
   baseUrl = environment.baseUrl;
 
-  constructor(private http: HttpClient, private route: Router){}
+  constructor(private http: HttpClient){}
 
   getAddressById(id:string): Observable<RecAddress>{
     return this.http.get<RecAddress>(`${this.baseUrl}/addresses/${id}`)

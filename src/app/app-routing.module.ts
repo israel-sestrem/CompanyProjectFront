@@ -18,6 +18,10 @@ import { SigninComponent } from './home/signin/signin.component';
 import { SignupComponent } from './home/signup/signup.component';
 import { UserAuthenticatedGuard } from './services/guards/user-authenticated.guard';
 import { UserNotAuthenticatedGuard } from './services/guards/user-not-authenticated.guard';
+import { UserAtualizationComponent } from './user/user-atualization/user-atualization.component';
+import { UserListComponent } from './user/user-list/user-list.component';
+import { UserRegistrationComponent } from './user/user-registration/user-registration.component';
+import { UserRemovalComponent } from './user/user-removal/user-removal.component';
 
 const routes: Routes = [
   { path: '',                     component: SigninComponent,              canActivate: [UserNotAuthenticatedGuard] },
@@ -35,6 +39,10 @@ const routes: Routes = [
   { path: 'contact/atualization', component: ContactAtualizationComponent, canActivate: [UserAuthenticatedGuard]    },
   { path: 'contact/registration', component: ContactRegistrationComponent, canActivate: [UserAuthenticatedGuard]    },
   { path: 'contact/removal',      component: ContactRemovalComponent,      canActivate: [UserAuthenticatedGuard]    },
+  { path: 'user',                 component: UserListComponent,            canActivate: [UserAuthenticatedGuard]    },
+  { path: 'user/atualization',    component: UserAtualizationComponent,    canActivate: [UserAuthenticatedGuard]    },
+  { path: 'user/registration',    component: UserRegistrationComponent,    canActivate: [UserAuthenticatedGuard]    },
+  { path: 'user/removal',         component: UserRemovalComponent,         canActivate: [UserAuthenticatedGuard]    },
   { path: '**',      component: NotFoundComponent,    canActivate: [UserAuthenticatedGuard] }
 ];
 

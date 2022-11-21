@@ -14,8 +14,4 @@ export class HomeComponent implements OnInit {
 
   }
 
-  deslogar(){
-    this.service.deslogar();
-  }
-
 }
