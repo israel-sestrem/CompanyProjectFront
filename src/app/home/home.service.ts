@@ -41,10 +41,7 @@ export class HomeService {
     setUserLogged(userId:string){
         localStorage.setItem('user', userId)
         this.findById(userId)
-            .subscribe(user => {
-                this.companyService.getCompanyById(user.clientId)
-                    .subscribe(client => localStorage.setItem('client', client.id))
-            })
+            .subscribe(user => localStorage.setItem('client', user.clientId))
     }
 
     get getUserLogged(){
