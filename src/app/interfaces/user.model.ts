@@ -10,4 +10,5 @@ export interface SaveUser {
     email:string
     name:string
     password:string
+    clientName:string
 }
