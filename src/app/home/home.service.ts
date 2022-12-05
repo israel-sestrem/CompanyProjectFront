@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
+import { CompanyService } from "../company/company.service";
 import { RecUser, RecUserLogin, UserLogin, UserSignup } from "../interfaces/home.model";
 
 @Injectable({providedIn:'root'})
@@ -10,7 +11,11 @@ export class HomeService {
 
     baseUrl = environment.baseUrl;
 
-    constructor(private http: HttpClient, private route: Router){}
+    constructor(
+        private http: HttpClient, 
+        private route: Router, 
+        private companyService: CompanyService
+        ){}
 
     validateUser(userLogin:UserLogin): Observable<RecUserLogin>{
         return this.http.post<RecUserLogin>(`${this.baseUrl}/users/login`, userLogin)
@@ -35,6 +40,11 @@ export class HomeService {
 
     setUserLogged(userId:string){
         localStorage.setItem('user', userId)
+        this.findById(userId)
+            .subscribe(user => {
+                this.companyService.getCompanyById(user.clientId)
+                    .subscribe(client => localStorage.setItem('client', client.id))
+            })
     }
 
     get getUserLogged(){
