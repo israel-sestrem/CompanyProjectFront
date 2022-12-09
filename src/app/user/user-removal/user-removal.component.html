@@ -1,3 +1,29 @@
 <app-header></app-header>
-<p>user-removal works!</p>
+
+<div class="body-page">
+
+    <table class="table mt-5">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="text-center">
+        <p class="fw-bold fs-5">Você realmente deseja deletar o usuário de id {{ id }}?</p>
+        <button class="btn btn-primary btn-block m-1" routerLink="/user">Cancelar</button>
+        <button (click)="deleteUser()" class="btn btn-danger btn-block m-1">Deletar</button>
+    </div>
+</div>
+
 <app-footer></app-footer>

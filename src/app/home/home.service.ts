@@ -4,7 +4,8 @@ import { Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { CompanyService } from "../company/company.service";
-import { RecUser, RecUserLogin, UserLogin, UserSignup } from "../interfaces/home.model";
+import { RecUserLogin, UserLogin, UserSignup } from "../interfaces/home.model";
+import { RecUser } from "../interfaces/user.model";
 
 @Injectable({providedIn:'root'})
 export class HomeService {

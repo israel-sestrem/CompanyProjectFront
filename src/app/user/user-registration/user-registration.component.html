@@ -1,3 +1,40 @@
 <app-header></app-header>
-<p>user-registration works!</p>
+
+<div class="body-page center">
+    <h4 class="text-center mt-3">Cadastro</h4>
+
+    <form [formGroup]="form" class="form mt-4">
+
+        <div class="form-group mb-3">
+            <label for="client" class="fw-bold">Cliente</label>
+            <input class="form-control" id="client" [value]="client.name" disabled autofocus>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="name" class="fw-bold">Nome</label>
+            <input formControlName="name" id="name" class="form-control" placeholder="Nome do usuário" autofocus>
+            <small *ngIf="form.get('name')?.errors?.['required']" class="text-danger d-block mt-2">
+                Nome do usuário é necessário!
+            </small>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="email" class="fw-bold">Email</label>
+            <input formControlName="email" id="email" class="form-control" placeholder="Email do usuário" autofocus>
+            <small *ngIf="form.get('email')?.errors?.['required']" class="text-danger d-block mt-2">
+                Email do usuário é necessário!
+            </small>
+            <small *ngIf="form.get('email')?.errors?.['email']" class="text-danger d-block mt-2">
+                Email do usuário é incorreto!
+            </small>
+        </div>
+
+        <div class="text-center">
+            <button class="btn btn-secondary btn-block m-1" routerLink="/user">Cancelar</button>
+            <button [disabled]="form.invalid" (click)="registerUser(form)" type="submit" class="btn btn-primary btn-block m-1">Cadastrar</button>
+        </div>
+
+    </form>
+</div>
+
 <app-footer></app-footer>

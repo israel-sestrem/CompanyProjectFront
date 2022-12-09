@@ -3,8 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HomeService } from 'src/app/home/home.service';
-import { RecClient } from 'src/app/interfaces/company.model';
-import { RecUser } from 'src/app/interfaces/home.model';
+import { RecUser } from 'src/app/interfaces/user.model';
 import { CompanyService } from '../company.service';
 
 @Component({

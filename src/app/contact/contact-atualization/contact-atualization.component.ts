@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CompanyService } from 'src/app/company/company.service';
 import { HomeService } from 'src/app/home/home.service';
 import { RecClient } from 'src/app/interfaces/company.model';
-import { RecUser } from 'src/app/interfaces/home.model';
+import { RecUser } from 'src/app/interfaces/user.model';
 import { ContactService } from '../contact.service';
 
 @Component({

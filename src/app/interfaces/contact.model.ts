@@ -1,6 +1,5 @@
 import { RecClient } from "./company.model"
-import { RecUser } from "./home.model"
-
+import { RecUser } from "./user.model"
 export interface RecContact{
     id:string
     phone:string

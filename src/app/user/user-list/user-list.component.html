@@ -1,3 +1,42 @@
 <app-header></app-header>
-<p>user-list works!</p>
+
+<div class="body-page">
+    <div class="text-center">
+        <button class="btn btn-primary mt-2" routerLink="/user/registration">Cadastrar</button>
+    </div>
+
+    <table class="table mt-5">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col" colspan="2" class="text-center">Opção</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                    <div class="text-center">
+                        <button class="btn btn-warning" (click)="setUser(user.id)" routerLink="/user/atualization">Editar</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="text-center">
+                        <button class="btn btn-danger" (click)="setUser(user.id)" routerLink="/user/removal">Deletar</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="5" class="text-center">Quantidade de usuários: {{ users.length }}</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
 <app-footer></app-footer>

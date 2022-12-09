@@ -12,3 +12,9 @@ export interface SaveUser {
     password:string
     clientName:string
 }
+
+export interface UpdateUser {
+    email:string
+    name:string
+    password:string
+}

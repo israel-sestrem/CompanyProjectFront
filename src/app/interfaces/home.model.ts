@@ -15,11 +15,3 @@ export interface UserSignup {
     clientName: string
     clientEmail: string
 }
-
-export interface RecUser {
-    id:string
-    clientId:string
-    name:string
-    password:string
-    email:string
-}
