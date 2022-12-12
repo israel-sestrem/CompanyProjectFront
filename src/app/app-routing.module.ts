@@ -43,7 +43,7 @@ const routes: Routes = [
   { path: 'user/atualization',    component: UserAtualizationComponent,    canActivate: [UserAuthenticatedGuard]    },
   { path: 'user/registration',    component: UserRegistrationComponent,    canActivate: [UserAuthenticatedGuard]    },
   { path: 'user/removal',         component: UserRemovalComponent,         canActivate: [UserAuthenticatedGuard]    },
-  { path: '**',      component: NotFoundComponent,    canActivate: [UserAuthenticatedGuard] }
+  { path: '**',                   component: NotFoundComponent,            canActivate: [UserAuthenticatedGuard]    }
 ];
 
 @NgModule({
