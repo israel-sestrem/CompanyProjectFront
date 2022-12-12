@@ -26,7 +26,7 @@
 
         <div class="form-group mb-3">
             <label for="password" class="fw-bold">Senha</label>
-            <input formControlName="password" id="password" class="form-control" placeholder="Senha do usuário" autofocus>
+            <input formControlName="password" id="password" class="form-control" placeholder="Senha do usuário" type="password" autofocus>
             <small *ngIf="form.get('password')?.errors?.['required']" class="text-danger d-block mt-2">
                 Senha do usuário é necessário!
             </small>
