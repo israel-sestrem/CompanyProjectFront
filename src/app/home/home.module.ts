@@ -17,7 +17,8 @@ import { FixedModule } from "../fixed/fixed.module";
         CommonModule,
         ReactiveFormsModule,
         RouterModule,
-        FixedModule
+        FixedModule,
+        // MatFaqModule
     ]
 })
 export class HomeModule {}

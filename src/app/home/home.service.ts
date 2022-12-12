@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
-import { CompanyService } from "../company/company.service";
+import { RecFaq } from "../interfaces/faq.model";
 import { RecUserLogin, UserLogin, UserSignup } from "../interfaces/home.model";
 import { RecUser } from "../interfaces/user.model";
 
@@ -14,8 +14,7 @@ export class HomeService {
 
     constructor(
         private http: HttpClient, 
-        private route: Router, 
-        private companyService: CompanyService
+        private route: Router
         ){}
 
     validateUser(userLogin:UserLogin): Observable<RecUserLogin>{
@@ -32,6 +31,10 @@ export class HomeService {
 
     existsUser(userId:string): Observable<boolean>{
         return this.http.get<boolean>(`${this.baseUrl}/users/exists/${userId}`)
+    }
+
+    getFaqs(): Observable<RecFaq[]>{
+        return this.http.get<RecFaq[]>(`${this.baseUrl}/faq`)
     }
 
     deslogar(){

@@ -1,3 +1,19 @@
 <app-header></app-header>
-<p>home works!</p>
-<app-footer></app-footer>
+
+<div class="body-page">
+    <div class="text-center">
+        <div *ngFor="let faq of faqs">
+            <h5 class="faq-page">{{ faq.question }}</h5>
+            <div class="faq-body">
+                <p>{{ faq.answer }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="bg-light">
+    <div class="footer" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2022 Copyright:
+      <a class="text-dark" target="_blank" href="https://www.linkedin.com/in/israel-ricardo-sestrem-a734421b9/">Israel Sestrem</a>
+    </div>
+</footer>
