@@ -14,7 +14,6 @@ import { UserService } from '../user.service';
 export class UserAtualizationComponent implements OnInit {
 
   id = localStorage.getItem('userEdit')
-  user:RecUser = {} as RecUser
   form!:FormGroup
 
   constructor(
@@ -34,7 +33,11 @@ export class UserAtualizationComponent implements OnInit {
 
   getUser(){
     this.homeService.findById(this.id!)
-      .subscribe(user => this.user = user)
+      .subscribe(user => {
+        this.form.controls['name'].setValue(user.name)
+        this.form.controls['email'].setValue(user.email)
+        this.form.controls['password'].setValue(user.password) 
+      })
   }
 
   createForm(){
@@ -46,12 +49,12 @@ export class UserAtualizationComponent implements OnInit {
   }
 
   editUser(form:FormGroup){
-    let id = this.user.id
+    let id = this.id
     let name = form.value.name
     let email = form.value.email
     let password = form.value.password
 
-    this.service.edit(id,{name, email, password})
+    this.service.edit(id!,{name, email, password})
       .subscribe(res => {
         if(res){
           this.toast.success('Usuário editado com sucesso!')

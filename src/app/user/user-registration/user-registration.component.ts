@@ -40,8 +40,7 @@ export class UserRegistrationComponent implements OnInit {
     this.form = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-      clientName: ['']
+      password: ['', Validators.required]
     })
   }
 
@@ -49,7 +48,7 @@ export class UserRegistrationComponent implements OnInit {
     let name = form.value.name
     let email = form.value.email
     let password = form.value.password
-    let clientName = form.value.clientName
+    let clientName = this.client.name
 
     this.service.register({name, email, password, clientName})
       .subscribe(res => {

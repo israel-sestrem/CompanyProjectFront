@@ -29,6 +29,14 @@
             </small>
         </div>
 
+        <div class="form-group mb-3">
+            <label for="password" class="fw-bold">Senha</label>
+            <input formControlName="password" id="password" class="form-control" placeholder="Senha do usuário" autofocus>
+            <small *ngIf="form.get('password')?.errors?.['required']" class="text-danger d-block mt-2">
+                Senha do usuário é necessário!
+            </small>
+        </div>
+
         <div class="text-center">
             <button class="btn btn-secondary btn-block m-1" routerLink="/user">Cancelar</button>
             <button [disabled]="form.invalid" (click)="registerUser(form)" type="submit" class="btn btn-primary btn-block m-1">Cadastrar</button>

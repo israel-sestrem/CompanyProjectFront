@@ -38,7 +38,11 @@ export class UserRemovalComponent implements OnInit {
       .subscribe(res => {
         if(res){
           this.toast.success('Usuário removido com sucesso!')
-          this.route.navigate(['/user']);
+          if(localStorage.getItem('user') == this.id){
+            this.homeService.deslogar();
+          } else {
+            this.route.navigate(['/user']);
+          }
         } else {
           this.toast.error('Erro ao tentar remover usuário')
         }
